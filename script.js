@@ -78,5 +78,7 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
+    const audio = document.getElementById('romanticSong');
+    audio.play(); // Reproduce la canción
     window.location.href = "yes_page.html";
 }
