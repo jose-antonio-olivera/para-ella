@@ -78,15 +78,14 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
-    const audio = document.getElementById('romanticSong'); // ID correcto
-
+    const audio = document.getElementById('romanticSong');
     audio.play().then(() => {
-        // Espera 3 segundos para que se escuche el inicio de la canción
+        console.log("Reproduciendo audio...");
         setTimeout(() => {
             window.location.href = "yes_page.html";
-        }, 3000);
-    }).catch((error) => {
-        console.warn("No se pudo reproducir el audio:", error);
-        window.location.href = "yes_page.html"; // Redirige igual si falla
+        }, 2000); // espera 2 segundos antes de redirigir
+    }).catch(err => {
+        console.error("No se pudo reproducir el audio:", err);
+        window.location.href = "yes_page.html";
     });
 }
