@@ -78,7 +78,15 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
-    const audio = document.getElementById('sound/videoplayback.mp3');
-    audio.play(); // Reproduce la canción
-    window.location.href = "yes_page.html";
+    const audio = document.getElementById('romanticSong'); // ID correcto
+
+    audio.play().then(() => {
+        // Espera 3 segundos para que se escuche el inicio de la canción
+        setTimeout(() => {
+            window.location.href = "yes_page.html";
+        }, 3000);
+    }).catch((error) => {
+        console.warn("No se pudo reproducir el audio:", error);
+        window.location.href = "yes_page.html"; // Redirige igual si falla
+    });
 }
